@@ -95,13 +95,12 @@ app.delete('/usuarios/:id', async (req, res) => {
     }
 });
 
-// Serve arquivos estáticos da build do React
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// Rota wildcard para qualquer outra rota que não seja API → devolve o index.html
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
+
 
 // Inicializa o servidor na porta configurada
 app.listen(PORT, (err) => {
