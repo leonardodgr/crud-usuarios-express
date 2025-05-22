@@ -96,18 +96,6 @@ app.delete('/usuarios/:id', async (req, res) => {
     }
 });
 
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-// app.get('*', (req, res) => {
-//     const indexPath = path.join(__dirname, '../frontend/dist/index.html');
-
-//     if (fs.existsSync(indexPath)) {
-//         res.sendFile(indexPath);
-//     } else {
-//         res.status(404).send('Arquivo index.html não encontrado');
-//     }
-// });
-
 // Inicializa o servidor na porta configurada
 app.listen(PORT, (err) => {
     if (err) {
