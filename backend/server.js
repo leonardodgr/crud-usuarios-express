@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 
 // Carrega variáveis de ambiente do arquivo .env
 dotenv.config();
@@ -98,9 +99,14 @@ app.delete('/usuarios/:id', async (req, res) => {
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
+    const indexPath = path.join(__dirname, '../frontend/dist/index.html');
 
+    if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+    } else {
+        res.status(404).send('Arquivo index.html não encontrado');
+    }
+});
 
 // Inicializa o servidor na porta configurada
 app.listen(PORT, (err) => {
