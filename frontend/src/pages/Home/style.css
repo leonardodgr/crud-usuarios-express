@@ -87,3 +87,25 @@ form {
   transform: scale(1.2);
   filter: brightness(0.7);
 }
+
+.pop-alert {
+  width: 270px;
+  padding: 35px;
+  color: #fffffe;
+  background-color: #232946;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: left;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+}
+
+.pop-alert span {
+  letter-spacing: 0.1cap;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  padding: 5px
+}
